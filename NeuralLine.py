@@ -59,6 +59,7 @@ def WeightMod(choice,w1,w2,w3,w4,w5):
         w3 += random.uniform(-0.2,0.2)
         w4 += random.uniform(-0.2,0.2)
         w5 += random.uniform(-0.2,0.2)
+    return w1, w2, w3, w4, w5
 
 while done != "done":
     # This is so that it gets a new seed on each iteration,
@@ -79,15 +80,15 @@ while done != "done":
     if (InputValue - 1) <= OutputValue <= (InputValue + 1):
         GiveResults(InputValue,OutputValue)
         print("I did well!")
-        WeightMod("mult",we1,we2,we3,we4,we5)
+        we1, we2, we3, we4, we5 = WeightMod("mult",we1,we2,we3,we4,we5)
     elif (InputValue - 2) <= OutputValue <= (InputValue + 2):
         GiveResults(InputValue,OutputValue)
         print("I did okay.")
-        WeightMod("add",we1,we2,we3,we4,we5)
+        we1, we2, we3, we4, we5 = WeightMod("add",we1,we2,we3,we4,we5)
     else:
         GiveResults(InputValue,OutputValue)
         print("I did bad :(")
-        WeightMod("addbig",we1,we2,we3,we4,we5)
+        we1, we2, we3, we4, we5 = WeightMod("addbig",we1,we2,we3,we4,we5)
     # To end, or not end, the program.
     # Just pressing and holding the enter key can give you a thousand iterations in about a minute.
     print("Do you with to be done?")
